@@ -5,6 +5,8 @@ import java.util.Map;
 
 import com.lgt.mall.order.feign.ProductFeign;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import com.lgt.mall.order.entity.OrderEntity;
@@ -21,6 +23,7 @@ import com.lgt.mall.common.utils.R;
  * @email leeetaooo@gmail.com
  * @date 2023-08-08 07:24:23
  */
+@RefreshScope
 @RestController
 @RequestMapping("order/order")
 public class OrderController {
@@ -28,7 +31,14 @@ public class OrderController {
     private OrderService orderService;
     @Autowired
     private ProductFeign productFeign;
-
+    @Value("${user.uname}")
+    private String userName;
+    @Value("${user.uage}")
+    private String userAge;
+    @GetMapping("/users")
+    public R ueryUser(){
+        return R.ok().put("username",userName).put("userAge",userAge);
+    }
     @GetMapping("/products")
     public R queryAllProduct(){
         return R.ok().put("products",productFeign.queryAllBrand());

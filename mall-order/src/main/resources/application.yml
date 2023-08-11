@@ -1,25 +1,29 @@
-
-# mysql
-spring:
-  datasource:
-    #MySQL配置
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.64.32:3306/mall-oms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-    username: root
-    password: root
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 192.168.64.32:8848
-  application:
-    name: mall-order
-mybatis-plus:
-  mapper-locations: classpath*:/mapper/**/*.xml
-  global-config:
-    db-config:
-      id-type: auto # 主键自增
-
-server:
-  port: 8012
-
-
+#
+## mysql
+#spring:
+#  datasource:
+#    #MySQL配置
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://192.168.64.32:3306/mall-oms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: root
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.64.32:8848
+#  application:
+#    name: mall-order
+#mybatis-plus:
+#  mapper-locations: classpath*:/mapper/**/*.xml
+#  global-config:
+#    db-config:
+#      id-type: auto # 主键自增
+#
+#server:
+#  port: 8012
+#
+#user:
+#  uname: zhangsan
+#  uage: 18
+#
+#
